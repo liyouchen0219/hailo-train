@@ -63,10 +63,10 @@ sudo apt-get update
 sudo apt-get install build-essential python3-dev graphviz graphviz-dev python3-tk
 pip install pygraphviz
 ```
-# (a)先從去下載相關套件(上面有附上)
+#### (a)先從去下載相關套件(上面有附上)
 [Hailo Developer 區下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
-# (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾
-# (c)將下載的兩個套件放進資料夾
+#### (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾
+#### (c)將下載的兩個套件放進資料夾
 ```
 pip install whl/hailo_dataflow_compiler-3.27.0-py3-none-linux_x86_64.whl
 pip install whl/hailo_model_zoo-2.11.0-py3-none-any.whl
