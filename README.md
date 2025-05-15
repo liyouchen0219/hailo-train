@@ -34,14 +34,13 @@ py -3.11 -m venv hailo_train
 python yolo_train.py
 ```
 #### 步驟3.將模型檔從.pt檔轉成.onnx檔
-將模型檔從.pt檔轉成.onnx檔
+##### 將模型檔從.pt檔轉成.onnx檔
 ```
 python yolo_onnx.py
 ```
-!!重要參數!!  
-dynamic=False #表示輸出的ONNX模型會使用靜態輸入大小，若設為True可能會影響推論引擎的效能或相容性  
-opset=11 #表示輸出的ONNX模型將使用第11版的操作定義
-
+##### !!重要參數!!  
+##### dynamic=False #表示輸出的ONNX模型會使用靜態輸入大小，若設為True可能會影響推論引擎的效能或相容性  
+##### opset=11 #表示輸出的ONNX模型將使用第11版的操作定義
 #### 步驟4.在本地端下載ubuntu虛擬機
 ```
 ubuntu
@@ -64,10 +63,11 @@ sudo apt-get update
 sudo apt-get install build-essential python3-dev graphviz graphviz-dev python3-tk
 pip install pygraphviz
 ```
+# (a)先從去下載相關套件(上面有附上)
+[Hailo Developer 區下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
+# (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾
+# (c)將下載的兩個套件放進資料夾
 ```
-[Hailo Developer 區下載頁面](https://hailo.ai/developer-zone/software-downloads/)
-#1.先從[Hailo Developer](https://hailo.ai/developer-zone/software-downloads/)
-下載相關套件(上面有附上)
 pip install whl/hailo_dataflow_compiler-3.27.0-py3-none-linux_x86_64.whl
 pip install whl/hailo_model_zoo-2.11.0-py3-none-any.whl
 ```
