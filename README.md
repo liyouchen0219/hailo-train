@@ -11,7 +11,7 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 -模組尺寸：M.2 Key B+M、M.2 Key A+E<br>
 -支援平台：x86或ARM架構主機<br>
 
-## 使用步驟
+## 步驟介紹
 1. 安裝 Visual Studio Code 並設定 Python 3.11 環境
 2. 使用 YOLOv8n 訓練模型（產出 `.pt` 檔)
 3. 將模型檔從 `.pt` 轉換成 `.onnx` 格式
@@ -74,7 +74,27 @@ pip install whl/hailo_model_zoo-2.11.0-py3-none-any.whl
 ```
 git clone https://github.com/hailo-ai/hailo_model_zoo.git
 ```
+#### 把圖片和標註轉成.tfrecord 格式，供Hailo模型訓練使用
 ```
+python steps/2_install_dataset/create_custom_tfrecord.py val
+python steps/2_install_dataset/create_custom_tfrecord.py train
+```
+#### 步驟6.使用hailo環境進行轉檔
+#### 對模型進行解析.onnx→.har，程式碼第四和第五行須更改使用者名稱(一開始要等一下才會開始跑)
+```
+python steps/3_process/parse.py
+```
+#### 對模型進行最佳化best.har→best_quantized_model.har，程式碼第31、45和58須更改使用者名稱
+```
+python steps/3_process/optimize.py
+```
+#### 轉換模型best_quantized_model.har → best.hef
+```
+python steps/3_process/compile.py
+```
+### !!轉換成best.hef便完成轉檔!!
+
+
 
 
 
