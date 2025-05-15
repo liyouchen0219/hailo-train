@@ -21,6 +21,8 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 7. 在 Raspberry Pi 5 上安裝 Hailo 執行環境  
 8. 在 Raspberry Pi 上進行即時物件追蹤推論
 
+## 以下步驟於電腦本地端和虛擬機進行操作
+
 #### 步驟1.安裝 Visual Studio Code 並設定 Python 3.11 環境
 在vscode終端機輸入指令來建立python 3.11環境
 
@@ -64,6 +66,8 @@ sudo apt-get install build-essential python3-dev graphviz graphviz-dev python3-t
 pip install pygraphviz
 ```
 #### (a)先從去下載相關套件(上面有附上)
+![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20190232.png?raw=true)
+![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20201234.png?raw=true)
 [Hailo Developer 區下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
 #### (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾
 #### (c)將下載的兩個套件放進資料夾
@@ -94,7 +98,29 @@ python steps/3_process/compile.py
 ```
 ### !!轉換成best.hef便完成轉檔!!
 
+# 將模型透過Winscp或是隨身碟傳進Raspberry Pi 5
+```
+pip install /home/pi/hailo_platform-4.21.0-cp311-cp311-linux_aarch64.whl
+```
+```
+pip install /home/pi/hailort-4.21.0-cp311-cp311-linux_aarch64.whl
+```
 
+## 以下步驟於Raspberry Pi 5進行操作
+#### 在終端機輸入指令
+```
+cd hailo8l
+git clone https://github.com/hailo-ai/hailo-rpi5-examples.git
+pip install setproctitle
+```
+```
+cd hailo-rpi5-examples
+source setup_env.sh
+cd ..
+```
+```
+python basic_pipelines/detection.py -i rpi --hef best.hef --labels-json labels.json
+```
 
 
 
