@@ -26,7 +26,7 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 #### 步驟1.安裝 Visual Studio Code 並設定 Python 3.11 環境
 在vscode終端機輸入指令來建立python 3.11環境
 
-```bash
+```
 # 建立名為hailo_train的虛擬環境
 py -3.11 -m venv hailo_train
 ```
