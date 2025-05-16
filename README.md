@@ -159,6 +159,8 @@ pip install -r requirements.txt
 ```
 python /home/pi/Hailo-Application-Code-Examples/runtime/python/detection_with_tracker/detection_with_tracker.py   -i /home/pi/egg.mp4   -n /home/pi/best.hef   -l /home/pi/label.txt -o /home/pi/output.mp4
 ```
+# 結果
+
 使用 **Hailo-8L** 搭配 **Raspberry Pi 5** 與 **Pi Camera**，可達成每秒 **93 FPS** 的影像處理速度。  
 實驗中成功整合以下三種輸入來源進行物件追蹤：
 
@@ -167,6 +169,7 @@ python /home/pi/Hailo-Application-Code-Examples/runtime/python/detection_with_tr
 - 輸入影片檔  
 
 在測試 **100 顆雞蛋** 的辨識任務中，皆能被完整準確辨識。
+
 
 
 
