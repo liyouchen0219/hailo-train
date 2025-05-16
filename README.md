@@ -23,7 +23,7 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 
 ## 以下步驟於電腦本地端和虛擬機進行操作
 
-#### 步驟1.<u>在Visual Studio Code使用YOLOv8n訓練模型</u> / 在虛擬機中使用YOLOv8n訓練模型(產出 `.pt` 檔）
+#### 步驟1.(a)在Visual Studio Code使用YOLOv8n訓練模型
 在vscode終端機輸入指令來建立python 3.11環境
 ```
 # 建立名為hailo_train的虛擬環境
@@ -34,9 +34,10 @@ py -3.11 -m venv hailo_train
 ```
 python yolo_train.py
 ```
-#### 步驟1.在虛擬機中使用YOLOv8n訓練模型
+#### 步驟1.(b)在虛擬機中使用YOLOv8n訓練模型(產出 `.pt` 檔）  
 ```
 git clone https://github.com/BetaUtopia/Hailo8l.git
+```
 ```
 cd Hailo8l
 sudo apt-get update
@@ -46,20 +47,29 @@ python3.11 -m venv venv_yolov8
 source venv_yolov8/bin/activate
 pip install ultralytics
 ```
+```
 cd model
+```
 ```
 yolo detect train data=config.yaml model=yolov8n.pt name=retrain_yolov8n project=./runs/detect epochs=1000 batch=16
 ```
-cd runs/detect/retrain_yolov8n/weights   
-```
-#### 步驟2.將模型檔從.pt檔轉成.onnx檔
-##### 將模型檔從.pt檔轉成.onnx檔
+#### 步驟2.(a)在Visual Studio Code將模型檔從`.pt`轉換成`.onnx`格式
 ```
 python yolo_onnx.py
 ```
 ##### !!重要參數!!  
 ##### dynamic=False #表示輸出的ONNX模型會使用靜態輸入大小，若設為True可能會影響推論引擎的效能或相容性  
 ##### opset=11 #表示輸出的ONNX模型將使用第11版的操作定義
+#### 步驟2.(b)在虛擬機將模型檔從`.pt`轉換成`.onnx`格式
+```
+cd runs/detect/retrain_yolov8n/weights   
+```
+```
+yolo export model=./best.pt imgsz=640 format=onnx opset=11 
+```
+```
+cd ~/Hailo8l && deactivate
+```
 #### 步驟3.在本地端下載ubuntu虛擬機
 ```
 ubuntu
