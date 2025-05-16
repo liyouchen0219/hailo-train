@@ -143,6 +143,11 @@ cd ..
 python basic_pipelines/detection.py -i rpi --hef best.hef --labels-json labels.json
 ```
 ###### 使用 Hailo 官方範例對影片進行物件追蹤
+([點此下載whl檔案](https://1drv.ms/f/c/7857f00d2d4f49d2/Euw7AETjYbNOjRHdSC8sKDMBWdXS8TNplfSemaJBTI0ovw?e=bn8MzA))
+```
+pip install /home/pi/hailo_platform-4.21.0-cp311-cp311-linux_aarch64.whl
+pip install /home/pi/hailort-4.21.0-cp311-cp311-linux_aarch64.whl
+```
 ```
 git clone https://github.com/hailo-ai/Hailo-Application-Code-Examples.git
 cd Hailo-Application-Code-Examples/runtime/python/object_detection
@@ -150,12 +155,7 @@ cd Hailo-Application-Code-Examples/runtime/python/object_detection
 ```
 pip install -r requirements.txt
 ```
-```
-pip install /home/pi/hailo_platform-4.21.0-cp311-cp311-linux_aarch64.whl
-```
-```
-pip install /home/pi/hailort-4.21.0-cp311-cp311-linux_aarch64.whl
-```
+
 
 
 
