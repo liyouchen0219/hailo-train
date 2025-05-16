@@ -92,7 +92,7 @@ sudo apt-get update
 sudo apt-get install build-essential python3-dev graphviz graphviz-dev python3-tk
 pip install pygraphviz
 ```
-#### (a)先從去下載相關套件(上面有附上)
+#### (a)下載相關套件([點此下載](https://1drv.ms/f/c/7857f00d2d4f49d2/EsEFyOMKwgtKvDZ6Kdw6lZABpZcGHS1JgL9qLsE7Ti6yJA?e=oVkbkV))
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20190232.png?raw=true)
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20201234.png?raw=true)
 [Hailo Developer 區下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
