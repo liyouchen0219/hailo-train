@@ -19,7 +19,7 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 4. 在虛擬機中安裝 Hailo SDK 環境  
 5. 使用Hailo工具鏈將模型從 `.onnx → .har → .hef`格式轉換  
 6. 在 Raspberry Pi 5 上安裝 Hailo 執行環境  
-7. 在 Raspberry Pi 上進行即時物件追蹤推論
+7. 在 Raspberry Pi 5上進行即時物件追蹤推論
 
 ## 以下步驟於電腦本地端和虛擬機進行操作
 
