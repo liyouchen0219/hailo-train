@@ -12,9 +12,10 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 -支援平台：x86或ARM架構主機<br>
 
 ## 步驟介紹
-1. 安裝 Visual Studio Code 並設定 Python 3.11 環境
-2. 使用 YOLOv8n 訓練模型（產出 `.pt` 檔)
-3. 將模型檔從 `.pt` 轉換成 `.onnx` 格式
+1. 使用Visual Studio Code並設定Python 3.11 環境 or 使用虛擬機設定Python 3.11 環境<br>
+2.1 在Visual Studio Code使用YOLOv8n訓練模型（產出 `.pt` 檔)<br>
+2.2 在虛擬機使用YOLOv8n訓練模型（產出 `.pt` 檔)<br>
+3. 將模型檔從 `.pt` 轉換成 `.onnx` 格式  
 4. 在本地端安裝 Ubuntu 虛擬機  
 5. 在虛擬機中安裝 Hailo SDK 環境  
 6. 使用 Hailo 工具鏈將模型從 `.onnx → .har → .hef` 格式轉換  
