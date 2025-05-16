@@ -56,9 +56,9 @@ yolo detect train data=config.yaml model=yolov8n.pt name=retrain_yolov8n project
 ```
 python yolo_onnx.py
 ```
-##### !!重要參數!!  
-##### dynamic=False #表示輸出的ONNX模型會使用靜態輸入大小，若設為True可能會影響推論引擎的效能或相容性  
-##### opset=11 #表示輸出的ONNX模型將使用第11版的操作定義
+###### !!重要參數!!  
+###### dynamic=False #表示輸出的ONNX模型會使用靜態輸入大小，若設為True可能會影響推論引擎的效能或相容性  
+###### opset=11 #表示輸出的ONNX模型將使用第11版的操作定義
 
 #### 步驟2.(b)在虛擬機將模型檔從`.pt`轉換成`.onnx`格式
 ```
@@ -70,7 +70,7 @@ yolo export model=./best.pt imgsz=640 format=onnx opset=11
 ```
 cd ~/Hailo8l && deactivate
 ```
-#### 步驟3.在本地端下載ubuntu虛擬機
+#### 步驟3.在本地端下載ubuntu虛擬機(開啟虛擬機)
 ```
 ubuntu
 ```
@@ -111,23 +111,23 @@ python steps/2_install_dataset/create_custom_tfrecord.py val
 python steps/2_install_dataset/create_custom_tfrecord.py train
 ```
 #### 步驟5.使用hailo環境進行轉檔
-#### 對模型進行解析.onnx→.har，程式碼第四和第五行須更改使用者名稱(一開始要等一下才會開始跑)
+###### 對模型進行解析.onnx→.har，`parse.py`第四和第五行須更改使用者名稱(一開始要等一下才會開始跑)
 ```
 python steps/3_process/parse.py
 ```
-#### 對模型進行最佳化best.har→best_quantized_model.har，程式碼第31、45和58須更改使用者名稱
+###### 對模型進行最佳化best.har→best_quantized_model.har，`optimize.py`第31、45和58須更改使用者名稱，`\Hailo8l\config\postprocess_config\yolov8n_nms_config.json`要更改裡面classes數量要改成相對應數量
 ```
 python steps/3_process/optimize.py
 ```
-#### 轉換模型best_quantized_model.har → best.hef
+###### 轉換模型best_quantized_model.har → best.hef
 ```
 python steps/3_process/compile.py
 ```
-### !!轉換成best.hef便完成轉檔!!
+## !!轉換成best.hef便完成轉檔!!
 
 # 將模型透過Winscp或是隨身碟傳進Raspberry Pi 5
 ## 以下步驟於Raspberry Pi 5進行操作
-#### 在終端機輸入指令
+###### 在終端機輸入指令
 ```
 cd hailo8l
 git clone https://github.com/hailo-ai/hailo-rpi5-examples.git
@@ -138,16 +138,25 @@ cd hailo-rpi5-examples
 source setup_env.sh
 cd ..
 ```
+###### 使用Pi Camera來進行物件偵測
 ```
 python basic_pipelines/detection.py -i rpi --hef best.hef --labels-json labels.json
 ```
-#### 使用 Hailo 官方範例對影片進行物件偵測ff
+###### 使用 Hailo 官方範例對影片進行物件追蹤
+```
+git clone https://github.com/hailo-ai/Hailo-Application-Code-Examples.git
+cd Hailo-Application-Code-Examples/runtime/python/object_detection
+```
+```
+pip install -r requirements.txt
+```
 ```
 pip install /home/pi/hailo_platform-4.21.0-cp311-cp311-linux_aarch64.whl
 ```
 ```
 pip install /home/pi/hailort-4.21.0-cp311-cp311-linux_aarch64.whl
 ```
+
 
 
 
