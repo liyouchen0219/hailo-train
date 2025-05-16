@@ -169,6 +169,7 @@ python /home/pi/Hailo-Application-Code-Examples/runtime/python/detection_with_tr
 - 輸入影片檔  
 
 在測試 **100 顆雞蛋** 的辨識任務中，皆能被完整準確辨識。
+## 成果影片[ 點此觀看成果影片](https://github.com/liyouchen0219/hailo-train/raw/main/output.mp4)
 
 
 
