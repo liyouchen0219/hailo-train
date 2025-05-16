@@ -93,9 +93,9 @@ sudo apt-get install build-essential python3-dev graphviz graphviz-dev python3-t
 pip install pygraphviz
 ```
 #### (a)下載相關套件([點此下載](https://1drv.ms/f/c/7857f00d2d4f49d2/EsEFyOMKwgtKvDZ6Kdw6lZABpZcGHS1JgL9qLsE7Ti6yJA?e=oVkbkV))
+[官方Hailo Developer下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20190232.png?raw=true)
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20201234.png?raw=true)
-[Hailo Developer 區下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
 #### (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾，將下載的兩個套件放進資料夾
 #### (c)下載
 ```
@@ -138,12 +138,12 @@ cd hailo-rpi5-examples
 source setup_env.sh
 cd ..
 ```
-###### 使用Pi Camera來進行物件偵測
+###### 使用Pi Camera來進行物件偵測，labels名稱可以更改，模型路徑和名稱要注意
 ```
 python basic_pipelines/detection.py -i rpi --hef best.hef --labels-json labels.json
 ```
-###### 使用 Hailo 官方範例對影片進行物件追蹤
-([點此下載whl檔案](https://1drv.ms/f/c/7857f00d2d4f49d2/Euw7AETjYbNOjRHdSC8sKDMBWdXS8TNplfSemaJBTI0ovw?e=bn8MzA))
+###### 使用影片進行物件追蹤
+安裝環境([點此下載whl檔案](https://1drv.ms/f/c/7857f00d2d4f49d2/Euw7AETjYbNOjRHdSC8sKDMBWdXS8TNplfSemaJBTI0ovw?e=bn8MzA))
 ```
 pip install /home/pi/hailo_platform-4.21.0-cp311-cp311-linux_aarch64.whl
 pip install /home/pi/hailort-4.21.0-cp311-cp311-linux_aarch64.whl
@@ -155,7 +155,10 @@ cd Hailo-Application-Code-Examples/runtime/python/object_detection
 ```
 pip install -r requirements.txt
 ```
-
+進行物件追蹤(-i 輸入影片 -n 模型檔案 -l 標籤檔案 -o 輸出影片)
+```
+python /home/pi/Hailo-Application-Code-Examples/runtime/python/detection_with_tracker/detection_with_tracker.py   -i /home/pi/egg.mp4   -n /home/pi/best.hef   -l /home/pi/label.txt -o /home/pi/output.mp4
+```
 
 
 
