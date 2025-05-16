@@ -138,7 +138,7 @@ cd hailo-rpi5-examples
 source setup_env.sh
 cd ..
 ```
-###### 使用Pi Camera來進行物件偵測，labels名稱可以更改，模型路徑和名稱要注意
+###### 範例1.使用Pi Camera來進行物件偵測，labels名稱可以更改，模型路徑和名稱要注意
 ```
 python basic_pipelines/detection.py -i rpi --hef best.hef --labels-json labels.json
 ```
@@ -155,11 +155,18 @@ cd Hailo-Application-Code-Examples/runtime/python/object_detection
 ```
 pip install -r requirements.txt
 ```
-進行物件追蹤(-i 輸入影片 -n 模型檔案 -l 標籤檔案 -o 輸出影片)
+###### 範例2.進行物件追蹤(-i 輸入影片 -n 模型檔案 -l 標籤檔案 -o 輸出影片)
 ```
 python /home/pi/Hailo-Application-Code-Examples/runtime/python/detection_with_tracker/detection_with_tracker.py   -i /home/pi/egg.mp4   -n /home/pi/best.hef   -l /home/pi/label.txt -o /home/pi/output.mp4
 ```
+使用 **Hailo-8L** 搭配 **Raspberry Pi 5** 與 **Pi Camera**，可達成每秒 **93 FPS** 的影像處理速度。  
+實驗中成功整合以下三種輸入來源進行物件追蹤：
 
+- Pi Camera  
+- WebCam  
+- 輸入影片檔  
+
+在測試 **100 顆雞蛋** 的辨識任務中，皆能被完整準確辨識。
 
 
 
