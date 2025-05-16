@@ -1,3 +1,4 @@
+2025/05/26 LI, YOU CHEN   (TW)
 ![](https://github.com/liyouchen0219/hailo-train/blob/main/hailo8l.jpeg?raw=true)
 # 使用Hailo 8L在Raspberry Pi 5上進行物件追蹤
 
