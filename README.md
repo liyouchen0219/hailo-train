@@ -105,7 +105,7 @@ pip install whl/hailo_model_zoo-2.11.0-py3-none-any.whl
 ```
 git clone https://github.com/hailo-ai/hailo_model_zoo.git
 ```
-#### 把圖片和標註轉成.tfrecord 格式，供Hailo模型訓練使用
+###### 把圖片和標註轉成.tfrecord 格式，供Hailo模型訓練使用
 ```
 python steps/2_install_dataset/create_custom_tfrecord.py val
 python steps/2_install_dataset/create_custom_tfrecord.py train
@@ -125,8 +125,8 @@ python steps/3_process/compile.py
 ```
 ## !!轉換成best.hef便完成轉檔!!
 
-### 將模型透過Winscp或是隨身碟傳進Raspberry Pi 5
-### 以下步驟於Raspberry Pi 5進行操作
+將模型透過Winscp或是隨身碟傳進Raspberry Pi 5
+以下步驟於Raspberry Pi 5進行操作
 ###### 在終端機輸入指令
 ```
 cd hailo8l
