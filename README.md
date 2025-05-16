@@ -96,7 +96,7 @@ pip install pygraphviz
 [官方Hailo Developer下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20190232.png?raw=true)
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20201234.png?raw=true)
-#### (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾，將下載的兩個套件放進資料夾
+#### (b)在`"\\wsl.localhost\Ubuntu\home\li\Hailo8l\whl"`建立一個名為whl的資料夾，將下載的兩個套件放進資料夾
 #### (c)下載
 ```
 pip install whl/hailo_dataflow_compiler-3.27.0-py3-none-linux_x86_64.whl
