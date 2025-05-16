@@ -171,6 +171,9 @@ python /home/pi/Hailo-Application-Code-Examples/runtime/python/detection_with_tr
 在測試 **100 顆雞蛋** 的辨識任務中，皆能被完整準確辨識。
 ## 成果影片[ 點此觀看成果影片](https://github.com/liyouchen0219/hailo-train/raw/main/output.mp4)
 
+# 參考資料
+- 🔗 [Hailo8l GitHub 專案](https://github.com/BetaUtopia/Hailo8l)  
+- 🎥 [YouTube 教學影片：Setup Hailo8l AI Kit](https://www.youtube.com/watch?v=64o_FQC3LiY&t=330s)
 
 
 
