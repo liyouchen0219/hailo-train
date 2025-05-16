@@ -12,31 +12,46 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 -支援平台：x86或ARM架構主機<br>
 
 ## 步驟介紹
-1. 使用Visual Studio Code並設定Python 3.11 環境 or 使用虛擬機設定Python 3.11 環境<br>
-2.1 在Visual Studio Code使用YOLOv8n訓練模型（產出 `.pt` 檔)<br>
-2.2 在虛擬機使用YOLOv8n訓練模型（產出 `.pt` 檔)<br>
-3. 將模型檔從 `.pt` 轉換成 `.onnx` 格式  
-4. 在本地端安裝 Ubuntu 虛擬機  
-5. 在虛擬機中安裝 Hailo SDK 環境  
-6. 使用 Hailo 工具鏈將模型從 `.onnx → .har → .hef` 格式轉換  
-7. 在 Raspberry Pi 5 上安裝 Hailo 執行環境  
-8. 在 Raspberry Pi 上進行即時物件追蹤推論
+1. 在Visual Studio Code使用YOLOv8n訓練模型 / 在虛擬機中使用YOLOv8n訓練模型(產出 `.pt` 檔）  
+2. 將模型檔從 `.pt` 轉換成 `.onnx` 格式  
+3. 在本地端安裝 Ubuntu 虛擬機  
+4. 在虛擬機中安裝 Hailo SDK 環境  
+5. 使用 Hailo 工具鏈將模型從 `.onnx → .har → .hef` 格式轉換  
+6. 在 Raspberry Pi 5 上安裝 Hailo 執行環境  
+7. 在 Raspberry Pi 上進行即時物件追蹤推論
 
 ## 以下步驟於電腦本地端和虛擬機進行操作
 
-#### 步驟1.安裝 Visual Studio Code 並設定 Python 3.11 環境
+#### 步驟1.<u>在Visual Studio Code使用YOLOv8n訓練模型</u> / 在虛擬機中使用YOLOv8n訓練模型(產出 `.pt` 檔）
 在vscode終端機輸入指令來建立python 3.11環境
-
 ```
 # 建立名為hailo_train的虛擬環境
 py -3.11 -m venv hailo_train
 ```
-#### 步驟2.使用Yolov8n訓練模型
+使用Yolov8n訓練模型
 在3.11環境使用ultralytics套件來訓練Yolov8n模型
 ```
 python yolo_train.py
 ```
-#### 步驟3.將模型檔從.pt檔轉成.onnx檔
+#### 步驟1.在虛擬機中使用YOLOv8n訓練模型
+```
+git clone https://github.com/BetaUtopia/Hailo8l.git
+```
+cd Hailo8l
+sudo apt-get update
+sudo apt-get install libpython3.11-stdlib libgl1-mesa-glx
+sudo apt install python3.11 python3.11-venv
+python3.11 -m venv venv_yolov8
+source venv_yolov8/bin/activate
+pip install ultralytics
+```
+cd model
+```
+yolo detect train data=config.yaml model=yolov8n.pt name=retrain_yolov8n project=./runs/detect epochs=1000 batch=16
+```
+cd runs/detect/retrain_yolov8n/weights   
+```
+#### 步驟2.將模型檔從.pt檔轉成.onnx檔
 ##### 將模型檔從.pt檔轉成.onnx檔
 ```
 python yolo_onnx.py
@@ -44,11 +59,11 @@ python yolo_onnx.py
 ##### !!重要參數!!  
 ##### dynamic=False #表示輸出的ONNX模型會使用靜態輸入大小，若設為True可能會影響推論引擎的效能或相容性  
 ##### opset=11 #表示輸出的ONNX模型將使用第11版的操作定義
-#### 步驟4.在本地端下載ubuntu虛擬機
+#### 步驟3.在本地端下載ubuntu虛擬機
 ```
 ubuntu
 ```
-#### 步驟5.在虛擬機安裝hailo環境
+#### 步驟4.在虛擬機安裝hailo環境
 ```
 git clone https://github.com/BetaUtopia/Hailo8l.git
 ```
@@ -84,7 +99,7 @@ git clone https://github.com/hailo-ai/hailo_model_zoo.git
 python steps/2_install_dataset/create_custom_tfrecord.py val
 python steps/2_install_dataset/create_custom_tfrecord.py train
 ```
-#### 步驟6.使用hailo環境進行轉檔
+#### 步驟5.使用hailo環境進行轉檔
 #### 對模型進行解析.onnx→.har，程式碼第四和第五行須更改使用者名稱(一開始要等一下才會開始跑)
 ```
 python steps/3_process/parse.py
