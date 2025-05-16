@@ -13,7 +13,7 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 
 ## 步驟介紹
 步驟1和步驟2可以在本地端或虛擬機進行，推薦在虛擬機，若在本地端訓練，建議也在虛擬機訓練一次，因為後續轉檔的路徑會指向訓練完的的資料夾(也可以自己建立)
-1. (a)在Visual Studio Code使用YOLOv8n訓練模型 or (b)在虛擬機中使用YOLOv8n訓練模型(產出 `.pt` 檔）  
+1. (a)在Visual Studio Code使用YOLOv8n訓練模型 or (b)在虛擬機中使用YOLOv8n訓練模型(產出`.pt`檔）  
 2. (a)在Visual Studio Code將模型檔從`.pt`轉換成`.onnx`格式 or (b)在虛擬機將模型檔從`.pt`轉換成`.onnx`格式  
 3. 在本地端安裝 Ubuntu 虛擬機  
 4. 在虛擬機中安裝 Hailo SDK 環境  
@@ -24,17 +24,16 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 ## 以下步驟於電腦本地端和虛擬機進行操作
 
 #### 步驟1.(a)在Visual Studio Code使用YOLOv8n訓練模型
-在vscode終端機輸入指令來建立python 3.11環境
+###### 在vscode終端機輸入指令來建立python 3.11環境
 ```
 # 建立名為hailo_train的虛擬環境
 py -3.11 -m venv hailo_train
 ```
-使用Yolov8n訓練模型
-在3.11環境使用ultralytics套件來訓練Yolov8n模型
+###### 使用Yolov8n訓練模型
 ```
 python yolo_train.py
 ```
-#### 步驟1.(b)在虛擬機中使用YOLOv8n訓練模型(產出 `.pt` 檔）  
+#### 步驟1.(b)在虛擬機中使用YOLOv8n訓練模型(產出`.pt`檔）  
 ```
 git clone https://github.com/BetaUtopia/Hailo8l.git
 ```
@@ -60,6 +59,7 @@ python yolo_onnx.py
 ##### !!重要參數!!  
 ##### dynamic=False #表示輸出的ONNX模型會使用靜態輸入大小，若設為True可能會影響推論引擎的效能或相容性  
 ##### opset=11 #表示輸出的ONNX模型將使用第11版的操作定義
+
 #### 步驟2.(b)在虛擬機將模型檔從`.pt`轉換成`.onnx`格式
 ```
 cd runs/detect/retrain_yolov8n/weights   
@@ -126,13 +126,6 @@ python steps/3_process/compile.py
 ### !!轉換成best.hef便完成轉檔!!
 
 # 將模型透過Winscp或是隨身碟傳進Raspberry Pi 5
-```
-pip install /home/pi/hailo_platform-4.21.0-cp311-cp311-linux_aarch64.whl
-```
-```
-pip install /home/pi/hailort-4.21.0-cp311-cp311-linux_aarch64.whl
-```
-
 ## 以下步驟於Raspberry Pi 5進行操作
 #### 在終端機輸入指令
 ```
@@ -147,6 +140,13 @@ cd ..
 ```
 ```
 python basic_pipelines/detection.py -i rpi --hef best.hef --labels-json labels.json
+```
+#### 使用 Hailo 官方範例對影片進行物件偵測ff
+```
+pip install /home/pi/hailo_platform-4.21.0-cp311-cp311-linux_aarch64.whl
+```
+```
+pip install /home/pi/hailort-4.21.0-cp311-cp311-linux_aarch64.whl
 ```
 
 
