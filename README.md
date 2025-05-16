@@ -17,7 +17,7 @@ Hailo-8L是由以色列AI晶片公司Hailo Technologies推出的入門級邊緣A
 2. (a)在Visual Studio Code將模型檔從`.pt`轉換成`.onnx`格式 or (b)在虛擬機將模型檔從`.pt`轉換成`.onnx`格式  
 3. 在本地端安裝 Ubuntu 虛擬機  
 4. 在虛擬機中安裝 Hailo SDK 環境  
-5. 使用 Hailo 工具鏈將模型從 `.onnx → .har → .hef` 格式轉換  
+5. 使用Hailo工具鏈將模型從 `.onnx → .har → .hef`格式轉換  
 6. 在 Raspberry Pi 5 上安裝 Hailo 執行環境  
 7. 在 Raspberry Pi 上進行即時物件追蹤推論
 
@@ -74,7 +74,7 @@ cd ~/Hailo8l && deactivate
 ```
 ubuntu
 ```
-#### 步驟4.在虛擬機安裝hailo環境
+#### 步驟4.在虛擬機中安裝 Hailo SDK 環境
 ```
 git clone https://github.com/BetaUtopia/Hailo8l.git
 ```
@@ -96,8 +96,8 @@ pip install pygraphviz
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20190232.png?raw=true)
 ![Hailo Training Screenshot](https://github.com/liyouchen0219/hailo-train/blob/main/%E8%9E%A2%E5%B9%95%E6%93%B7%E5%8F%96%E7%95%AB%E9%9D%A2%202025-05-15%20201234.png?raw=true)
 [Hailo Developer 區下載頁面](https://hailo.ai/developer-zone/software-downloads/)，要使用學校信箱來註冊
-#### (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾
-#### (c)將下載的兩個套件放進資料夾
+#### (b)在虛擬機路的hailo8l資料夾建立一個名為whl的資料夾，將下載的兩個套件放進資料夾
+#### (c)下載
 ```
 pip install whl/hailo_dataflow_compiler-3.27.0-py3-none-linux_x86_64.whl
 pip install whl/hailo_model_zoo-2.11.0-py3-none-any.whl
@@ -110,12 +110,12 @@ git clone https://github.com/hailo-ai/hailo_model_zoo.git
 python steps/2_install_dataset/create_custom_tfrecord.py val
 python steps/2_install_dataset/create_custom_tfrecord.py train
 ```
-#### 步驟5.使用hailo環境進行轉檔
-###### 對模型進行解析.onnx→.har，`parse.py`第四和第五行須更改使用者名稱(一開始要等一下才會開始跑)
+#### 步驟5.使用Hailo工具鏈將模型從`.onnx → .har → .hef`格式轉換
+###### 對模型進行解析`.onnx→.har`，`parse.py`第四和第五行須更改使用者名稱(一開始要等一下才會開始跑)
 ```
 python steps/3_process/parse.py
 ```
-###### 對模型進行最佳化best.har→best_quantized_model.har，`optimize.py`第31、45和58須更改使用者名稱，`\Hailo8l\config\postprocess_config\yolov8n_nms_config.json`要更改裡面classes數量要改成相對應數量
+###### 對模型進行最佳化`best.har`→`best_quantized_model.ha`r，`optimize.py`第31、45和58須更改使用者名稱，`\Hailo8l\config\...\yolov8n_nms_config.json`要更改裡面classes數量要改成相對應數量
 ```
 python steps/3_process/optimize.py
 ```
@@ -125,8 +125,8 @@ python steps/3_process/compile.py
 ```
 ## !!轉換成best.hef便完成轉檔!!
 
-# 將模型透過Winscp或是隨身碟傳進Raspberry Pi 5
-## 以下步驟於Raspberry Pi 5進行操作
+### 將模型透過Winscp或是隨身碟傳進Raspberry Pi 5
+### 以下步驟於Raspberry Pi 5進行操作
 ###### 在終端機輸入指令
 ```
 cd hailo8l
